@@ -11,11 +11,14 @@ C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.pdb
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\ref\RAWH.BLL.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\bin\Debug\net8.0\RAWH.DAL.dll
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\bin\Debug\net8.0\RAWH.DAL.pdb
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.csproj.AssemblyReference.cache
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.csproj.Up2Date
 =======
+=======
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.GeneratedMSBuildEditorConfig.editorconfig
 G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.AssemblyInfoInputs.cache
 G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.AssemblyInfo.cs
@@ -29,4 +32,7 @@ G:\ahmed\GraduationProject\RAWH.BLL\bin\Debug\net8.0\RAWH.BLL.dll
 G:\ahmed\GraduationProject\RAWH.BLL\bin\Debug\net8.0\RAWH.BLL.pdb
 G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.csproj.AssemblyReference.cache
 G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\ref\RAWH.BLL.dll
+<<<<<<< HEAD
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
+=======
 >>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084

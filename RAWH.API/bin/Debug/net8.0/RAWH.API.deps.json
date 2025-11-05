@@ -73,6 +73,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "Microsoft.AspNetCore.Authentication/2.3.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.3.0",
@@ -112,6 +113,8 @@
             "assemblyVersion": "8.0.21.0",
             "fileVersion": "8.0.2125.47515"
 =======
+=======
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
       "MailKit/4.8.0": {
         "dependencies": {
           "MimeKit": "4.8.0",
@@ -121,6 +124,9 @@
           "lib/net8.0/MailKit.dll": {
             "assemblyVersion": "4.8.0.0",
             "fileVersion": "4.8.0.0"
+<<<<<<< HEAD
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
+=======
 >>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
           }
         }
@@ -1134,6 +1140,7 @@
         }
       },
 <<<<<<< HEAD
+<<<<<<< HEAD
       "System.Security.Cryptography.Pkcs/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Security.Cryptography.Pkcs.dll": {
@@ -1148,6 +1155,11 @@
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.1024.46610"
           }
+=======
+      "System.Security.Cryptography.Pkcs/8.0.0": {
+        "dependencies": {
+          "System.Formats.Asn1": "8.0.2"
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 =======
       "System.Security.Cryptography.Pkcs/8.0.0": {
         "dependencies": {
@@ -1226,8 +1238,14 @@
       "RAWH.BLL/1.0.0": {
         "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.21",
           "RAWH.DAL": "1.0.0"
+=======
+          "MailKit": "4.8.0",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "MimeKit": "4.8.0"
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 =======
           "MailKit": "4.8.0",
           "Microsoft.Extensions.Options": "8.0.2",
@@ -1292,6 +1310,7 @@
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "Microsoft.AspNetCore.Authentication/2.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1327,12 +1346,17 @@
       "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.21",
       "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.8.0.21.nupkg.sha512"
 =======
+=======
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
     "MailKit/4.8.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-zZ1UoM4FUnSFUJ9fTl5CEEaejR0DNP6+FDt1OfXnjg4igZntcir1tg/8Ufd6WY5vrpmvToAjluYqjVM24A+5lA==",
       "path": "mailkit/4.8.0",
       "hashPath": "mailkit.4.8.0.nupkg.sha512"
+<<<<<<< HEAD
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
+=======
 >>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
     },
     "Microsoft.AspNetCore.Cryptography.Internal/8.0.21": {
@@ -1959,6 +1983,7 @@
       "hashPath": "system.security.cryptography.cng.5.0.0.nupkg.sha512"
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     "System.Security.Cryptography.Pkcs/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1966,12 +1991,17 @@
       "path": "system.security.cryptography.pkcs/8.0.1",
       "hashPath": "system.security.cryptography.pkcs.8.0.1.nupkg.sha512"
 =======
+=======
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
     "System.Security.Cryptography.Pkcs/8.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-ULmp3xoOwNYjOYp4JZ2NK/6NdTgiN1GQXzVVN1njQ7LOZ0d0B9vyMnhyqbIi9Qw4JXj1JgCsitkTShboHRx7Eg==",
       "path": "system.security.cryptography.pkcs/8.0.0",
       "hashPath": "system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
+<<<<<<< HEAD
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
+=======
 >>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
     },
     "System.Security.Cryptography.ProtectedData/6.0.0": {

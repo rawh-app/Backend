@@ -5,6 +5,7 @@
     "version": "1.0"
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   "paths": {
     "/api/Auth/Register": {
       "post": {
@@ -116,6 +117,10 @@
       }
     }
   }
+=======
+  "paths": { },
+  "components": { }
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 =======
   "paths": { },
   "components": { }

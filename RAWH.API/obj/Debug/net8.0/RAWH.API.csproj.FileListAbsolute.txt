@@ -154,6 +154,7 @@ C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\obj\Debug\net8
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\obj\Debug\net8.0\ref\RAWH.API.dll
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
@@ -165,6 +166,8 @@ C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8.0\RAWH.BLL.pdb
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 =======
+=======
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\RAWH.API.csproj.AssemblyReference.cache
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\rpswa.dswa.cache.json
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\RAWH.API.GeneratedMSBuildEditorConfig.editorconfig
@@ -324,4 +327,7 @@ G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\staticwebassets.upToDateChe
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\RAWH.API.csproj.Up2Date
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\RAWH.API.genruntimeconfig.cache
 G:\ahmed\GraduationProject\RAWH.API\obj\Debug\net8.0\ref\RAWH.API.dll
+<<<<<<< HEAD
+>>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
+=======
 >>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
