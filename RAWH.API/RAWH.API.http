@@ -1,0 +1,6 @@
+@RAWH.API_HostAddress = http://localhost:5124
+
+GET {{RAWH.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAWH.API", "RAWH.API\RAWH.API.csproj", "{1B6BA598-B4CF-4C95-8A99-477FE2E18FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAWH.DAL", "RAWH.DAL\RAWH.DAL.csproj", "{91630FD0-D915-4C10-947D-C11235329C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAWH.BLL", "RAWH.BLL\RAWH.BLL.csproj", "{0B9DDE2B-DAFB-4013-A05A-9C8C9EC034E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B6BA598-B4CF-4C95-8A99-477FE2E18FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6BA598-B4CF-4C95-8A99-477FE2E18FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6BA598-B4CF-4C95-8A99-477FE2E18FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6BA598-B4CF-4C95-8A99-477FE2E18FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91630FD0-D915-4C10-947D-C11235329C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91630FD0-D915-4C10-947D-C11235329C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91630FD0-D915-4C10-947D-C11235329C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91630FD0-D915-4C10-947D-C11235329C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9DDE2B-DAFB-4013-A05A-9C8C9EC034E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9DDE2B-DAFB-4013-A05A-9C8C9EC034E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9DDE2B-DAFB-4013-A05A-9C8C9EC034E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9DDE2B-DAFB-4013-A05A-9C8C9EC034E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA8F5ED1-51DA-4C2D-916A-D01137567B99}
+	EndGlobalSection
+EndGlobal
