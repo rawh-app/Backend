@@ -4,8 +4,6 @@
     "title": "RAWH.API",
     "version": "1.0"
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
   "paths": {
     "/api/Auth/Register": {
       "post": {
@@ -68,6 +66,105 @@
           }
         }
       }
+    },
+    "/api/Auth/send-reset-code": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "email": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/verify-reset-code": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "code": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/set-new-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  },
+                  "confirmPassword": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "password": {
+                  "style": "form"
+                },
+                "confirmPassword": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -117,12 +214,4 @@
       }
     }
   }
-=======
-  "paths": { },
-  "components": { }
->>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
-=======
-  "paths": { },
-  "components": { }
->>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
 }

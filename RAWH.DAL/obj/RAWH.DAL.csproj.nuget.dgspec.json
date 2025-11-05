@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj": {}
+    "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj": {
+    "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
+        "projectUniqueName": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
         "projectName": "RAWH.DAL",
-        "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
+        "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\obj\\",
+        "outputPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,12 +44,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EntityFrameworkCore.EncryptColumn": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.3.1, )"
@@ -95,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

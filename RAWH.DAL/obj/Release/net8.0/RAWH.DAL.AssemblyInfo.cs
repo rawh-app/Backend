@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RAWH.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96af9b4223d439410c4f045a5f610549763d0483")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f31c456f904afac0017712bdcecb3c1b9238b35c")]
 [assembly: System.Reflection.AssemblyProductAttribute("RAWH.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RAWH.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

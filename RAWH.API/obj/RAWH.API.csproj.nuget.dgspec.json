@@ -32,12 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-<<<<<<< HEAD
-              "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj": {
-                "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj"
+              "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj": {
+                "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj"
               },
-              "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj": {
-                "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj"
+              "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj": {
+                "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj"
               }
             }
           }
@@ -52,7 +51,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -106,96 +105,6 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj",
-        "projectName": "RAWH.BLL",
-        "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net8.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
-            "projectReferences": {
-              "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj": {
-                "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj"
-=======
-              "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj": {
-                "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj"
-              },
-              "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj": {
-                "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj"
->>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
-      },
-      "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
-          "dependencies": {
-            "MailKit": {
-              "target": "Package",
-              "version": "[4.8.0, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.21, )"
-            },
-            "MimeKit": {
-              "target": "Package",
-              "version": "[4.8.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
@@ -227,7 +136,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj": {
+                "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -250,9 +163,9 @@
               "target": "Package",
               "version": "[4.8.0, )"
             },
-            "Microsoft.Extensions.Options": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.2, )"
+              "version": "[8.0.21, )"
             },
             "MimeKit": {
               "target": "Package",
@@ -325,6 +238,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "EntityFrameworkCore.EncryptColumn": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.3.1, )"

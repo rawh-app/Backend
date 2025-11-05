@@ -47,6 +47,22 @@
           }
         }
       },
+      "EntityFrameworkCore.EncryptColumn/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.16"
+        },
+        "compile": {
+          "lib/netcoreapp8.0/EntityFrameworkCore.EncryptColumn.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp8.0/EntityFrameworkCore.EncryptColumn.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -2051,6 +2067,19 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "EntityFrameworkCore.EncryptColumn/8.0.0": {
+      "sha512": "pVcbJgFYw9hHRs2fDycRey75bjzBqiiDF5JqrRrwhyDxZZ8eN0BlH8mJj88xHUTtK2R/rw9oMBLip7qJN5RUjw==",
+      "type": "package",
+      "path": "entityframeworkcore.encryptcolumn/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframeworkcore.encryptcolumn.8.0.0.nupkg.sha512",
+        "entityframeworkcore.encryptcolumn.nuspec",
+        "lib/netcoreapp8.0/EntityFrameworkCore.EncryptColumn.dll",
+        "lib/netcoreapp8.0/EntityFrameworkCore.EncryptColumn.pdb"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -5064,6 +5093,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "EntityFrameworkCore.EncryptColumn >= 8.0.0",
       "Microsoft.AspNetCore.Identity >= 2.3.1",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.21",
       "Microsoft.EntityFrameworkCore >= 8.0.21",
@@ -5079,11 +5109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
+      "projectUniqueName": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
       "projectName": "RAWH.DAL",
-      "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
+      "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\obj\\",
+      "outputPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5116,12 +5146,16 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "EntityFrameworkCore.EncryptColumn": {
+            "target": "Package",
+            "version": "[8.0.0, )"
+          },
           "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "[2.3.1, )"
@@ -5167,16 +5201,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

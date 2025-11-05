@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RAWH.BLL.DTOs;
 using RAWH.BLL.Interfaces;
-using RAWH.BLL.Services;
 
 namespace RAWH.API.Controllers
 {
@@ -54,6 +51,32 @@ namespace RAWH.API.Controllers
                 return Unauthorized(ex.Message);
             }
         }
+        [HttpPost("send-reset-code")]
+        public async Task<IActionResult> SendResetCode([FromForm] string email)
+        {
+            var result = await auth.SendResetCode(email);
+            if (result.message.Contains("successfully"))
+                return Ok(result.message);
+            return BadRequest(result.message);
+        }
+        [HttpPost("verify-reset-code")]
+        public async Task<IActionResult> VerifyResetCode([FromForm] string code)
+        {
+            var result = await auth.VerifyResetCode(code);
+            if (result.message.Contains("successfully"))
+                return Ok(result.message);
+            return BadRequest(result.message);
+        }
+        [HttpPost("set-new-password")]
+        public async Task<IActionResult> SetNewPassword([FromForm] NewPasswordDTO model)
+        {
+            var result = await auth.SetNewPassword(model);
+            if (result.message.Contains("successfully"))
+                return Ok(result.message);
+            return BadRequest(result.message);
+        }
+
+
 
 
     }

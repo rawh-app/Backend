@@ -1,10 +1,10 @@
-using RAWH.BLL;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using RAWH.BLL;
 using RAWH.BLL.Setting;
 using RAWH.DAL.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 namespace RAWH.API
@@ -65,11 +65,6 @@ namespace RAWH.API
 
 
             builder.Services.AddAuthorization();
-
-
-
-
-
 
             var app = builder.Build();
 

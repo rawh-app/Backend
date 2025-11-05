@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 [
   {
     "ContainingType": "RAWH.API.Controllers.AuthController",
@@ -32,11 +30,58 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.AuthController",
+    "Method": "SendResetCode",
+    "RelativePath": "api/Auth/send-reset-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.AuthController",
+    "Method": "SetNewPassword",
+    "RelativePath": "api/Auth/set-new-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "confirmPassword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.AuthController",
+    "Method": "VerifyResetCode",
+    "RelativePath": "api/Auth/verify-reset-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
-=======
-[]
->>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084
-=======
-[]
->>>>>>> c6d1d8eeb377b47966704d4383163f052fcb6084

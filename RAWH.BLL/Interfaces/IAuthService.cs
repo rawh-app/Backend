@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RAWH.BLL.DTOs;
+﻿using RAWH.BLL.DTOs;
 
 namespace RAWH.BLL.Interfaces
 {
@@ -11,6 +6,9 @@ namespace RAWH.BLL.Interfaces
     {
         Task<string> Login(LoginDTO dto);
         Task<string> Register(RegisterDTO dto);
+        Task<AuthModelDTO> SendResetCode(string email);
+        Task<AuthModelDTO> VerifyResetCode(string code);
+        Task<AuthModelDTO> SetNewPassword(NewPasswordDTO model);
 
     }
 }
