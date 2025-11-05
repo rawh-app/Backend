@@ -1,6 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
-using RAWH.DAL;
+using RAWH.DAL.Data;
 
 namespace RAWH.API
 {
