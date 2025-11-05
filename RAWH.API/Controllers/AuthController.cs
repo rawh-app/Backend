@@ -12,9 +12,9 @@ namespace RAWH.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService auth;
-        private readonly TokenService tokenService;
+        private readonly IToken tokenService;
 
-        public AuthController(IAuthService auth, TokenService tokenService)
+        public AuthController(IAuthService auth, IToken tokenService)
         {
             this.auth = auth;
             this.tokenService = tokenService;
