@@ -13,3 +13,18 @@ C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.DAL\obj\Debug\net8
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.pdb
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.genruntimeconfig.cache
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.DAL\obj\Debug\net8.0\ref\RAWH.DAL.dll
+G:\ahmed\GraduationProject\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.deps.json
+G:\ahmed\GraduationProject\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.runtimeconfig.json
+G:\ahmed\GraduationProject\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.dll
+G:\ahmed\GraduationProject\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.pdb
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.csproj.AssemblyReference.cache
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.GeneratedMSBuildEditorConfig.editorconfig
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.AssemblyInfoInputs.cache
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.AssemblyInfo.cs
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.csproj.CoreCompileInputs.cache
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.sourcelink.json
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.dll
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\refint\RAWH.DAL.dll
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.pdb
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.genruntimeconfig.cache
+G:\ahmed\GraduationProject\RAWH.DAL\obj\Debug\net8.0\ref\RAWH.DAL.dll
