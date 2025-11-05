@@ -5109,11 +5109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
       "projectName": "RAWH.DAL",
-      "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5146,7 +5146,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5201,8 +5201,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

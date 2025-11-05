@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "r2rZalYKQ3I=",
+  "dgSpecHash": "mOJ+qf3kPC8=",
   "success": true,
-  "projectFilePath": "G:\\ahmed\\GraduationProject\\RAWH.DAL\\RAWH.DAL.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.DAL\\RAWH.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\entityframeworkcore.encryptcolumn\\8.0.0\\entityframeworkcore.encryptcolumn.8.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.3.0\\microsoft.aspnetcore.authentication.2.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.3.0\\microsoft.aspnetcore.authentication.abstractions.2.3.0.nupkg.sha512",
