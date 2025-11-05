@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using RAWH.BLL.Setting;
 using RAWH.DAL.Data;
 
 namespace RAWH.API
@@ -16,6 +17,7 @@ namespace RAWH.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.Configure<emailSetting>(builder.Configuration.GetSection("emailSetting"));
             // Tamer Elgayar
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

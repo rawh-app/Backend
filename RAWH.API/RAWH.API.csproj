@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RAWH.BLL\RAWH.BLL.csproj" />
     <ProjectReference Include="..\RAWH.DAL\RAWH.DAL.csproj" />
   </ItemGroup>
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj": {}
+    "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj": {
+    "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj",
+        "projectUniqueName": "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj",
         "projectName": "RAWH.BLL",
-        "projectPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\RAWH.BLL.csproj",
+        "projectPath": "G:\\ahmed\\GraduationProject\\RAWH.BLL\\RAWH.BLL.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Documents\\Visual Studio 2022\\Projects\\RAWH\\RAWH.BLL\\obj\\",
+        "outputPath": "G:\\ahmed\\GraduationProject\\RAWH.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,11 +44,25 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -65,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

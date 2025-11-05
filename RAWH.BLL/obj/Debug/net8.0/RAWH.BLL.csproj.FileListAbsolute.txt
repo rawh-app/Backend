@@ -10,3 +10,16 @@ C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\refint\RAWH.BLL.dll
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.pdb
 C:\Users\user\Documents\Visual Studio 2022\Projects\RAWH\RAWH.BLL\obj\Debug\net8.0\ref\RAWH.BLL.dll
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.GeneratedMSBuildEditorConfig.editorconfig
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.AssemblyInfoInputs.cache
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.AssemblyInfo.cs
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.csproj.CoreCompileInputs.cache
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.sourcelink.json
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.dll
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\refint\RAWH.BLL.dll
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.pdb
+G:\ahmed\GraduationProject\RAWH.BLL\bin\Debug\net8.0\RAWH.BLL.deps.json
+G:\ahmed\GraduationProject\RAWH.BLL\bin\Debug\net8.0\RAWH.BLL.dll
+G:\ahmed\GraduationProject\RAWH.BLL\bin\Debug\net8.0\RAWH.BLL.pdb
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\RAWH.BLL.csproj.AssemblyReference.cache
+G:\ahmed\GraduationProject\RAWH.BLL\obj\Debug\net8.0\ref\RAWH.BLL.dll

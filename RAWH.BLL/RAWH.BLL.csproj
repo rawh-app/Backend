@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="MailKit" Version="4.8.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="MimeKit" Version="4.8.0" />
   </ItemGroup>
 
 </Project>
