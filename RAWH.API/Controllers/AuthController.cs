@@ -75,7 +75,22 @@ namespace RAWH.API.Controllers
                 return Ok(result.message);
             return BadRequest(result.message);
         }
+        [HttpPost("google-login")]
+        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginDTO model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            try
+            {
+                var token = await auth.GoogleLogin(model.IdToken);
+                return Ok(new { token });
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized(ex.Message);
+            }
+        }
 
 
 

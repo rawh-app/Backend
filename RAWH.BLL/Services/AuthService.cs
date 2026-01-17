@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Google.Apis.Auth;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using RAWH.BLL.DTOs;
 using RAWH.BLL.Interfaces;
 using RAWH.DAL.Data;
@@ -12,16 +14,19 @@ namespace RAWH.BLL.Services
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IToken tokenService;
         private readonly IEmailService _emailService;
+        private readonly IConfiguration configuration;
 
         public AuthService(SignInManager<ApplicationUser> signInManager
                             , UserManager<ApplicationUser> userManager
                             , IToken tokenService
-                            , IEmailService emailService)
+                            , IEmailService emailService,
+IConfiguration configuration)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.tokenService = tokenService;
             _emailService = emailService;
+            this.configuration = configuration;
         }
 
         //Register
@@ -114,6 +119,49 @@ namespace RAWH.BLL.Services
             {
                 message = "Password changed successfully!"
             };
+        }
+        public async Task<string> GoogleLogin(string idToken)
+        {
+            var settings = new GoogleJsonWebSignature.ValidationSettings()
+            {
+                Audience = new List<string>
+        {
+            configuration["GoogleAuth:ClientId"]
+        }
+            };
+
+            GoogleJsonWebSignature.Payload payload;
+
+            try
+            {
+                payload = await GoogleJsonWebSignature.ValidateAsync(idToken, settings);
+            }
+            catch
+            {
+                throw new Exception("Invalid Google ID Token");
+            }
+
+            var email = payload.Email;
+            var googleId = payload.Subject;
+
+            var user = await userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                user = new ApplicationUser
+                {
+                    UserName = email,
+                    Email = email,
+                    GoogleId = googleId
+                };
+
+                var result = await userManager.CreateAsync(user);
+
+                if (!result.Succeeded)
+                    throw new Exception("Failed to create Google user");
+            }
+
+            return tokenService.GenerateJwtToken(user);
         }
 
 

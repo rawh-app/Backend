@@ -9,6 +9,7 @@ namespace RAWH.BLL.Interfaces
         Task<AuthModelDTO> SendResetCode(string email);
         Task<AuthModelDTO> VerifyResetCode(string code);
         Task<AuthModelDTO> SetNewPassword(NewPasswordDTO model);
+        Task<string> GoogleLogin(string idToken);
 
     }
 }

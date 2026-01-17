@@ -6,5 +6,6 @@ namespace RAWH.DAL.Data
     {
         [EncryptColumn]
         public string resetPasswordEmail { get; set; }
+        public string? GoogleId { get; set; }
     }
 }
