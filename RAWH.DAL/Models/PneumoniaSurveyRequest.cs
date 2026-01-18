@@ -1,9 +1,30 @@
-﻿using static RAWH.DAL.Enums.AppEnums;
+﻿using RAWH.DAL.Data;
+using System.ComponentModel.DataAnnotations.Schema;
+using static RAWH.DAL.Enums.AppEnums;
 public class PneumoniaSurveyRequest
 {
     // Child Info
+    public int Id { get; set; }
+    [ForeignKey("ApplicationUser")]
+    public string UserId { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
     public string ChildName { get; set; }
     public DateTime DateOfBirth { get; set; }
+    public int Age { get; private set; }
+
+    public void CalculateAge()
+    {
+        var today = DateTime.Today;
+        Age = today.Year - DateOfBirth.Year;
+
+        if (DateOfBirth.Date > today.AddYears(-Age))
+            Age--;
+    }
+
+
+
+
+
     public Gender Gender { get; set; }
     // Fever
     public FeverDuration FeverDuration { get; set; }
@@ -33,4 +54,5 @@ public class PneumoniaSurveyRequest
     // Medical History
     public RecurrentChestIssues RecurrentChestIssues { get; set; } // إضافة: سعال أو مشاكل صدرية متكررة
     public HeartCondition HeartCondition { get; set; } // إضافة: مشكلة في القلب (نعم، لا، لا أعلم)
+
 }

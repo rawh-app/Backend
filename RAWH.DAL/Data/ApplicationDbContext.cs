@@ -12,7 +12,7 @@ namespace RAWH.DAL.Data
         {
             _encryptionProvider = new GenerateEncryptionProvider("63fdf5d627c30b56");
         }
-        public DbSet<Student> Students { get; set; }
+        public DbSet<PneumoniaSurveyRequest> PneumoniaSurveyRequest { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

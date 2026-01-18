@@ -21,10 +21,6 @@
             NotReduced,          // لا تنخفض
             DidNotTakeMedicine   // لم يأخذ الطفل خافض للحرارة
         }
-        public enum CanCompleteMealWithoutStopping
-        {
-
-        }
 
         public enum FeverLevel
         {
@@ -98,7 +94,7 @@
         {
             Yes,                 // نعم
             No,                  // لا
-            IDontKnow            // لا أعلم
+            Not_Sure            // لا أعلم
         }
 
 
