@@ -99,5 +99,79 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.PneumoniaSurveyController",
+    "Method": "Create",
+    "RelativePath": "api/PneumoniaSurvey",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "RAWH.BLL.DTOs.PneumoniaSurveyCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.PneumoniaSurveyController",
+    "Method": "GetSurvey",
+    "RelativePath": "api/PneumoniaSurvey/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.PneumoniaSurveyController",
+    "Method": "Update",
+    "RelativePath": "api/PneumoniaSurvey/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "RAWH.BLL.DTOs.PneumoniaSurveyCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RAWH.API.Controllers.PneumoniaSurveyController",
+    "Method": "UploadAudio",
+    "RelativePath": "api/PneumoniaSurvey/{id}/upload-audio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "AudioRecord",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

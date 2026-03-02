@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Computers & Information\\Graduations\\RAWH.API\\RAWH.API.csproj": {}
+    "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\RAWH.API.csproj": {}
   },
   "projects": {
-    "E:\\Computers & Information\\Graduations\\RAWH.API\\RAWH.API.csproj": {
+    "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\RAWH.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Computers & Information\\Graduations\\RAWH.API\\RAWH.API.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\RAWH.API.csproj",
         "projectName": "RAWH.API",
-        "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.API\\RAWH.API.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "E:\\Computers & Information\\Graduations\\RAWH.API\\obj\\",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\RAWH.API.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj": {
-                "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj"
+              "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj"
               },
-              "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj": {
-                "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj"
+              "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj"
               }
             }
           }
@@ -51,7 +51,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -105,24 +105,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj": {
+    "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj",
         "projectName": "RAWH.BLL",
-        "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\obj\\",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -137,8 +137,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj": {
-                "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj"
+              "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj": {
+                "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj"
               }
             }
           }
@@ -153,7 +153,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -192,24 +192,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj": {
+    "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj",
         "projectName": "RAWH.DAL",
-        "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\obj\\",
+        "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -236,7 +236,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -291,7 +291,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

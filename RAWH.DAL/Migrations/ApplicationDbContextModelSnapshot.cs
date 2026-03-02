@@ -166,8 +166,14 @@ namespace RAWH.DAL.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<int>("AgeUnit")
+                        .HasColumnType("int");
+
                     b.Property<int>("AppetiteStatus")
                         .HasColumnType("int");
+
+                    b.Property<string>("AudioRecordPath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BreathingEffort")
                         .HasColumnType("int");
@@ -232,6 +238,9 @@ namespace RAWH.DAL.Migrations
 
                     b.Property<int>("RecurrentChestIssues")
                         .HasColumnType("int");
+
+                    b.Property<string>("RiskPrediction")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()

@@ -1,1 +1,20 @@
-{"Version":1,"Hash":"O8kM7S6qbWvWZNO0nC4gDpd4VJarAsKXhfM6nTDglqI=","Source":"RAWH.API","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "7eTcHBpKaqz5B4gRDSFPPW3MOrUclMEcSIuPN3AWKgI=",
+  "Source": "RAWH.API",
+  "BasePath": "_content/RAWH.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "RAWH.API\\wwwroot",
+      "Source": "RAWH.API",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.API\\wwwroot\\",
+      "BasePath": "_content/RAWH.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [],
+  "Endpoints": []
+}

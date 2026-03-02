@@ -11,15 +11,31 @@ public class PneumoniaSurveyRequest
     public string ChildName { get; set; }
     public DateTime DateOfBirth { get; set; }
     public int Age { get; private set; }
+    public AgeUnit AgeUnit { get; private set; }
 
     public void CalculateAge()
     {
         var today = DateTime.Today;
-        Age = today.Year - DateOfBirth.Year;
+        var totalDays = (today - DateOfBirth).Days;
 
-        if (DateOfBirth.Date > today.AddYears(-Age))
-            Age--;
+        if (totalDays < 28)
+        {
+            Age = totalDays;
+            AgeUnit = AgeUnit.Days;
+            return;
+        }
+
+        if (totalDays < 730)
+        {
+            Age = (int)(totalDays / 30.44);
+            AgeUnit = AgeUnit.Months;
+            return;
+        }
+
+        Age = (int)(totalDays / 365.25);
+        AgeUnit = AgeUnit.Years;
     }
+
 
 
 
@@ -54,5 +70,13 @@ public class PneumoniaSurveyRequest
     // Medical History
     public RecurrentChestIssues RecurrentChestIssues { get; set; } // إضافة: سعال أو مشاكل صدرية متكررة
     public HeartCondition HeartCondition { get; set; } // إضافة: مشكلة في القلب (نعم، لا، لا أعلم)
+
+    //Audio
+    public string? AudioRecordPath { get; set; }
+
+
+    //Survey Result From AI Model
+    public string? RiskPrediction { get; set; } // Low Risk, Moderate Risk, High Risk, Severe Pneumonia
+
 
 }

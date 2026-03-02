@@ -6,6 +6,7 @@ using RAWH.BLL;
 using RAWH.BLL.Setting;
 using RAWH.DAL.Data;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace RAWH.API
 {
@@ -17,7 +18,15 @@ namespace RAWH.API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            //Enum => Text
+            builder.Services.AddControllers()
+             .AddJsonOptions(options =>
+                 {
+               options.JsonSerializerOptions.Converters.Add(
+                   new JsonStringEnumConverter()
+               );
+                 });
+            
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -30,6 +39,7 @@ namespace RAWH.API
             builder.Services.ADDBLL_Registeration();
 
 
+       
 
             //Identity Services
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -71,9 +81,11 @@ namespace RAWH.API
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+            }
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 

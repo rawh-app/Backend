@@ -26,4 +26,8 @@
     <ProjectReference Include="..\RAWH.DAL\RAWH.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\audio\survey\" />
+  </ItemGroup>
+
 </Project>

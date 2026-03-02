@@ -4,8 +4,8 @@
     {
         public enum Gender
         {
-            Male = 0,
-            Female = 1
+            Male ,
+            Female
         }
         public enum FeverDuration
         {
@@ -44,10 +44,10 @@
         }
         public enum CoughDuration
         {
-            None = 0,
-            StartedToday = 1,
-            FewDays = 2,
-            AllDay = 3
+            None,
+            StartedToday,
+            FewDays,
+            AllDay
         }
         public enum CoughType
         {
@@ -97,6 +97,12 @@
             Not_Sure            // لا أعلم
         }
 
+        public enum AgeUnit
+        {
+            Days,
+            Months,
+            Years
+        }
 
     }
 }

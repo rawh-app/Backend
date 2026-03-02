@@ -196,10 +196,229 @@
           }
         }
       }
+    },
+    "/api/PneumoniaSurvey": {
+      "post": {
+        "tags": [
+          "PneumoniaSurvey"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PneumoniaSurvey/{id}/upload-audio": {
+      "post": {
+        "tags": [
+          "PneumoniaSurvey"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "AudioRecord": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "AudioRecord": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/PneumoniaSurvey/{id}": {
+      "get": {
+        "tags": [
+          "PneumoniaSurvey"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PneumoniaSurvey"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AppetiteStatus": {
+        "enum": [
+          "RefusesCompletely",
+          "EatsLessThanUsual",
+          "EatsNormally"
+        ],
+        "type": "string"
+      },
+      "BreathingEffort": {
+        "enum": [
+          "Normal",
+          "FastBreathing",
+          "LooksExhausted"
+        ],
+        "type": "string"
+      },
+      "CoughSeverity": {
+        "enum": [
+          "Mild",
+          "Moderate",
+          "Severe"
+        ],
+        "type": "string"
+      },
+      "CoughTime": {
+        "enum": [
+          "IncreasesDaytime",
+          "IncreasesNighttime",
+          "ContinuousAllDay",
+          "NoCough"
+        ],
+        "type": "string"
+      },
+      "CoughType": {
+        "enum": [
+          "DryCough",
+          "ProductiveCough"
+        ],
+        "type": "string"
+      },
+      "FeedingAbility": {
+        "enum": [
+          "CanComplete",
+          "StopsToCatchBreath",
+          "DifficultyCompleting"
+        ],
+        "type": "string"
+      },
+      "FeverDuration": {
+        "enum": [
+          "LessThan24Hours",
+          "From1To3Days",
+          "MoreThan3Days",
+          "NormalTemperature"
+        ],
+        "type": "string"
+      },
+      "FeverLevel": {
+        "enum": [
+          "LessThan38",
+          "From38To39",
+          "MoreThan39",
+          "NotMeasured"
+        ],
+        "type": "string"
+      },
+      "FeverResponse": {
+        "enum": [
+          "ReducedEasily",
+          "ReducedWithDifficulty",
+          "NotReduced",
+          "DidNotTakeMedicine"
+        ],
+        "type": "string"
+      },
+      "Gender": {
+        "enum": [
+          "Male",
+          "Female"
+        ],
+        "type": "string"
+      },
       "GoogleLoginDTO": {
         "type": "object",
         "properties": {
@@ -209,6 +428,22 @@
           }
         },
         "additionalProperties": false
+      },
+      "HasChestIndrawing": {
+        "enum": [
+          "Yes",
+          "No",
+          "Not_Sure"
+        ],
+        "type": "string"
+      },
+      "HeartCondition": {
+        "enum": [
+          "Yes",
+          "No",
+          "IDontKnow"
+        ],
+        "type": "string"
       },
       "LoginDTO": {
         "required": [
@@ -228,6 +463,96 @@
           }
         },
         "additionalProperties": false
+      },
+      "PhlegmStatus": {
+        "enum": [
+          "EasyToExit",
+          "DifficultToExit",
+          "NoPhlegm"
+        ],
+        "type": "string"
+      },
+      "PneumoniaSurveyCreateDto": {
+        "type": "object",
+        "properties": {
+          "childName": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "feverDuration": {
+            "$ref": "#/components/schemas/FeverDuration"
+          },
+          "feverLevel": {
+            "$ref": "#/components/schemas/FeverLevel"
+          },
+          "feverResponse": {
+            "$ref": "#/components/schemas/FeverResponse"
+          },
+          "coughTime": {
+            "$ref": "#/components/schemas/CoughTime"
+          },
+          "coughType": {
+            "$ref": "#/components/schemas/CoughType"
+          },
+          "phlegmStatus": {
+            "$ref": "#/components/schemas/PhlegmStatus"
+          },
+          "coughSeverity": {
+            "$ref": "#/components/schemas/CoughSeverity"
+          },
+          "hasAbnormalBreathingSound": {
+            "type": "boolean"
+          },
+          "breathingEffort": {
+            "$ref": "#/components/schemas/BreathingEffort"
+          },
+          "feedingAbility": {
+            "$ref": "#/components/schemas/FeedingAbility"
+          },
+          "hasChestIndrawing": {
+            "$ref": "#/components/schemas/HasChestIndrawing"
+          },
+          "hasNasalFlaring": {
+            "type": "boolean"
+          },
+          "hasCyanosis": {
+            "type": "boolean"
+          },
+          "fatigueStatus": {
+            "type": "boolean"
+          },
+          "appetiteStatus": {
+            "$ref": "#/components/schemas/AppetiteStatus"
+          },
+          "hasWeakCry": {
+            "type": "boolean"
+          },
+          "hasSevereRunnyNoseWithBreathingDifficulty": {
+            "type": "boolean"
+          },
+          "recurrentChestIssues": {
+            "$ref": "#/components/schemas/RecurrentChestIssues"
+          },
+          "heartCondition": {
+            "$ref": "#/components/schemas/HeartCondition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecurrentChestIssues": {
+        "enum": [
+          "Significantly",
+          "Sometimes",
+          "Rarely"
+        ],
+        "type": "string"
       },
       "RegisterDTO": {
         "required": [

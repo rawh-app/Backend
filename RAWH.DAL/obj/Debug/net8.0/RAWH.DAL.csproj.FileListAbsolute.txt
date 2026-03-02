@@ -28,3 +28,18 @@ E:\Computers & Information\Graduations\RAWH.DAL\obj\Debug\net8.0\refint\RAWH.DAL
 E:\Computers & Information\Graduations\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.pdb
 E:\Computers & Information\Graduations\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.genruntimeconfig.cache
 E:\Computers & Information\Graduations\RAWH.DAL\obj\Debug\net8.0\ref\RAWH.DAL.dll
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.deps.json
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.runtimeconfig.json
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.dll
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\bin\Debug\net8.0\RAWH.DAL.pdb
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.csproj.AssemblyReference.cache
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.AssemblyInfoInputs.cache
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.AssemblyInfo.cs
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.sourcelink.json
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.dll
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\refint\RAWH.DAL.dll
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.pdb
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\RAWH.DAL.genruntimeconfig.cache
+C:\Users\user\Source\Repos\Backend\RAWH.DAL\obj\Debug\net8.0\ref\RAWH.DAL.dll
