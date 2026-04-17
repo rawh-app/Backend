@@ -517,3 +517,4 @@ C:\Users\user\Source\Repos\Backend\RAWH.API\obj\Debug\net8.0\refint\RAWH.API.dll
 C:\Users\user\Source\Repos\Backend\RAWH.API\obj\Debug\net8.0\RAWH.API.pdb
 C:\Users\user\Source\Repos\Backend\RAWH.API\obj\Debug\net8.0\RAWH.API.genruntimeconfig.cache
 C:\Users\user\Source\Repos\Backend\RAWH.API\obj\Debug\net8.0\ref\RAWH.API.dll
+E:\Computers & Information\Graduations\RAWH.API\bin\Debug\net8.0\RAWH.API.staticwebassets.runtime.json

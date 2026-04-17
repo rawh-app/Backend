@@ -77,6 +77,7 @@ public class PneumoniaSurveyRequest
 
     //Survey Result From AI Model
     public string? RiskPrediction { get; set; } // Low Risk, Moderate Risk, High Risk, Severe Pneumonia
+    public string? AudioRiskPrediction { get; set; } 
 
 
 }

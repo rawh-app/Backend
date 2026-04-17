@@ -1,9 +1,10 @@
-﻿using System.Security.Claims;
-using System.Text.Json;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RAWH.BLL.DTOs;
 using RAWH.DAL.Data;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
 
 namespace RAWH.API.Controllers
 {
@@ -147,8 +148,6 @@ namespace RAWH.API.Controllers
                 });
             }
         }
-
-        // ===== Upload Audio =====
         [HttpPost("{id}/upload-audio")]
         public async Task<IActionResult> UploadAudio(int id, [FromForm] UploadAudioDto dto)
         {
@@ -156,12 +155,11 @@ namespace RAWH.API.Controllers
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var survey = await _context.PneumoniaSurveyRequest.FindAsync(id);
+            var survey = await _context.PneumoniaSurveyRequest
+                .FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+
             if (survey == null)
                 return NotFound();
-
-            if (survey.UserId != userId)
-                return Forbid();
 
             if (dto.AudioRecord == null || dto.AudioRecord.Length == 0)
                 return BadRequest("No file");
@@ -193,10 +191,38 @@ namespace RAWH.API.Controllers
             survey.AudioRecordPath = $"/uploads/audio/survey/{fileName}";
             await _context.SaveChangesAsync();
 
+            try
+            {
+                using var httpClient = new HttpClient();
+
+                var aiDto = new
+                {
+                    AudioPath = survey.AudioRecordPath
+                };
+
+                var aiRequest = JsonSerializer.Serialize(aiDto);
+                var content = new StringContent(aiRequest, Encoding.UTF8, "application/json");
+
+                var aiResponse = await httpClient.PostAsync("", content);
+                aiResponse.EnsureSuccessStatusCode();
+
+                var resultJson = await aiResponse.Content.ReadAsStringAsync();
+                var aiResult = JsonSerializer.Deserialize<Dictionary<string, object>>(resultJson);
+
+                survey.RiskPrediction = aiResult["result"].ToString();
+                await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                survey.RiskPrediction = "AudioAnalysisError";
+                await _context.SaveChangesAsync();
+            }
+
             return Ok(new
             {
-                message = "Audio uploaded",
-                audioPath = survey.AudioRecordPath
+                message = "Audio uploaded and analyzed",
+                audioPath = survey.AudioRecordPath,
+                riskPrediction = survey.RiskPrediction
             });
         }
 
