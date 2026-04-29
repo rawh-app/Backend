@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RAWH.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f015735ae6ed26f6f840ecffe234f831bb45123d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6b83e6fb0b0e0bd7f2c73bf394c6025a187e89c")]
 [assembly: System.Reflection.AssemblyProductAttribute("RAWH.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RAWH.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
