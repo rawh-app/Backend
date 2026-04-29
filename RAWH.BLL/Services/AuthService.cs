@@ -83,10 +83,7 @@ namespace RAWH.BLL.Services
 
             await _emailService.sendEmail(user.Email!, htmlMessage);
 
-            return new AuthModelDTO
-            {
-                message = "Reset code sent successfully!"
-            };
+            return new AuthModelDTO { message = "Reset code sent successfully!" };
         }
 
         // ================= VERIFY RESET CODE =================
@@ -95,16 +92,14 @@ namespace RAWH.BLL.Services
             if (string.IsNullOrWhiteSpace(code))
                 return new AuthModelDTO { message = "Code is required!" };
 
-            var user = await userManager.Users
-                .FirstOrDefaultAsync(u => u.resetPasswordEmail == code);
+            // ✅ Load in-memory to handle encrypted column comparison
+            var user = (await userManager.Users.ToListAsync())
+                .FirstOrDefault(u => u.resetPasswordEmail == code);
 
             if (user == null)
                 return new AuthModelDTO { message = "Invalid or expired code!" };
 
-            return new AuthModelDTO
-            {
-                message = "Code verified successfully!"
-            };
+            return new AuthModelDTO { message = "Code verified successfully!" };
         }
 
         // ================= SET NEW PASSWORD =================
@@ -116,8 +111,9 @@ namespace RAWH.BLL.Services
             if (model.password != model.confirmPassword)
                 return new AuthModelDTO { message = "Passwords do not match!" };
 
-            var user = await userManager.Users
-                .FirstOrDefaultAsync(u => u.resetPasswordEmail != null);
+            // ✅ Load in-memory to handle encrypted column comparison
+            var user = (await userManager.Users.ToListAsync())
+                .FirstOrDefault(u => u.resetPasswordEmail != null);
 
             if (user == null)
                 return new AuthModelDTO { message = "You must verify reset code first!" };
@@ -128,7 +124,6 @@ namespace RAWH.BLL.Services
                 return new AuthModelDTO { message = "New password cannot be the same as old password!" };
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
-
             var result = await userManager.ResetPasswordAsync(user, token, model.password);
 
             if (!result.Succeeded)
@@ -140,10 +135,7 @@ namespace RAWH.BLL.Services
             user.resetPasswordEmail = null;
             await userManager.UpdateAsync(user);
 
-            return new AuthModelDTO
-            {
-                message = "Password changed successfully!"
-            };
+            return new AuthModelDTO { message = "Password changed successfully!" };
         }
 
         // ================= GOOGLE LOGIN =================
