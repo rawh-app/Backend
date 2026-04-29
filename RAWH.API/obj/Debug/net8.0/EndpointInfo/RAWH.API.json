@@ -312,17 +312,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+                "$ref": "#/components/schemas/PneumoniaSurveyGet_PutDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+                "$ref": "#/components/schemas/PneumoniaSurveyGet_PutDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/PneumoniaSurveyCreateDto"
+                "$ref": "#/components/schemas/PneumoniaSurveyGet_PutDto"
               }
             }
           }
@@ -486,6 +486,69 @@
           "gender": {
             "$ref": "#/components/schemas/Gender"
           },
+          "feverDuration": {
+            "$ref": "#/components/schemas/FeverDuration"
+          },
+          "feverLevel": {
+            "$ref": "#/components/schemas/FeverLevel"
+          },
+          "feverResponse": {
+            "$ref": "#/components/schemas/FeverResponse"
+          },
+          "coughTime": {
+            "$ref": "#/components/schemas/CoughTime"
+          },
+          "coughType": {
+            "$ref": "#/components/schemas/CoughType"
+          },
+          "phlegmStatus": {
+            "$ref": "#/components/schemas/PhlegmStatus"
+          },
+          "coughSeverity": {
+            "$ref": "#/components/schemas/CoughSeverity"
+          },
+          "hasAbnormalBreathingSound": {
+            "type": "boolean"
+          },
+          "breathingEffort": {
+            "$ref": "#/components/schemas/BreathingEffort"
+          },
+          "feedingAbility": {
+            "$ref": "#/components/schemas/FeedingAbility"
+          },
+          "hasChestIndrawing": {
+            "$ref": "#/components/schemas/HasChestIndrawing"
+          },
+          "hasNasalFlaring": {
+            "type": "boolean"
+          },
+          "hasCyanosis": {
+            "type": "boolean"
+          },
+          "fatigueStatus": {
+            "type": "boolean"
+          },
+          "appetiteStatus": {
+            "$ref": "#/components/schemas/AppetiteStatus"
+          },
+          "hasWeakCry": {
+            "type": "boolean"
+          },
+          "hasSevereRunnyNoseWithBreathingDifficulty": {
+            "type": "boolean"
+          },
+          "recurrentChestIssues": {
+            "$ref": "#/components/schemas/RecurrentChestIssues"
+          },
+          "heartCondition": {
+            "$ref": "#/components/schemas/HeartCondition"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PneumoniaSurveyGet_PutDto": {
+        "type": "object",
+        "properties": {
           "feverDuration": {
             "$ref": "#/components/schemas/FeverDuration"
           },

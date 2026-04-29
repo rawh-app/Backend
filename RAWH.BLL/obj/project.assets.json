@@ -4242,23 +4242,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ahmed_7oumfta\\.nuget\\packages\\": {},
+    "C:\\Users\\user\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj",
       "projectName": "RAWH.BLL",
-      "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\RAWH.BLL.csproj",
-      "packagesPath": "C:\\Users\\ahmed_7oumfta\\.nuget\\packages\\",
-      "outputPath": "E:\\Computers & Information\\Graduations\\RAWH.BLL\\obj\\",
+      "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\RAWH.BLL.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ahmed_7oumfta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4273,8 +4273,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj": {
-              "projectPath": "E:\\Computers & Information\\Graduations\\RAWH.DAL\\RAWH.DAL.csproj"
+            "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj": {
+              "projectPath": "C:\\Users\\user\\source\\repos\\Backend\\RAWH.DAL\\RAWH.DAL.csproj"
             }
           }
         }
@@ -4289,7 +4289,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -4323,27 +4323,25 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MimeKit' 4.8.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g7hc-96xr-gvvx",
+      "libraryId": "MimeKit",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

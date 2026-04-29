@@ -30,7 +30,6 @@ namespace RAWH.API.Controllers
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            // ===== Basic Validation =====
             if (string.IsNullOrWhiteSpace(dto.ChildName) || dto.ChildName.Length > 100)
                 return BadRequest(new { message = "ChildName يجب أن يكون بين 1 و 100 حرف" });
 
@@ -78,7 +77,6 @@ namespace RAWH.API.Controllers
                 _context.PneumoniaSurveyRequest.Add(survey);
                 await _context.SaveChangesAsync();
 
-                // ===== Send only selected fields to AI model =====
                 try
                 {
                     using var httpClient = new HttpClient();
@@ -113,17 +111,15 @@ namespace RAWH.API.Controllers
                     };
 
                     var aiRequest = JsonSerializer.Serialize(aiDto);
-                    var content = new StringContent(aiRequest, System.Text.Encoding.UTF8, "application/json");
+                    var content = new StringContent(aiRequest, Encoding.UTF8, "application/json");
 
                     var aiResponse = await httpClient.PostAsync("https://survey-api-uu1l.vercel.app/predict", content);
-                    aiResponse.EnsureSuccessStatusCode(); // يرمي Exception لو فيه خطأ
+                    aiResponse.EnsureSuccessStatusCode();
 
                     var resultJson = await aiResponse.Content.ReadAsStringAsync();
-                    // Deserialize باستخدام نفس keys اللي بيرجعها الـ AI
                     var aiResult = JsonSerializer.Deserialize<Dictionary<string, object>>(resultJson);
 
-                    survey.RiskPrediction = aiResult["result"].ToString(); // استخدم النتيجة مباشرة
-
+                    survey.RiskPrediction = aiResult["result"].ToString();
                     await _context.SaveChangesAsync();
                 }
                 catch
@@ -148,6 +144,7 @@ namespace RAWH.API.Controllers
                 });
             }
         }
+
         [HttpPost("{id}/upload-audio")]
         public async Task<IActionResult> UploadAudio(int id, [FromForm] UploadAudioDto dto)
         {
@@ -191,6 +188,7 @@ namespace RAWH.API.Controllers
             survey.AudioRecordPath = $"/uploads/audio/survey/{fileName}";
             await _context.SaveChangesAsync();
 
+            // ✅ التصليح هنا: AudioRiskPrediction بدل RiskPrediction + URL صح
             try
             {
                 using var httpClient = new HttpClient();
@@ -203,18 +201,18 @@ namespace RAWH.API.Controllers
                 var aiRequest = JsonSerializer.Serialize(aiDto);
                 var content = new StringContent(aiRequest, Encoding.UTF8, "application/json");
 
-                var aiResponse = await httpClient.PostAsync("", content);
+                var aiResponse = await httpClient.PostAsync("https://survey-api-uu1l.vercel.app/predict-audio", content);
                 aiResponse.EnsureSuccessStatusCode();
 
                 var resultJson = await aiResponse.Content.ReadAsStringAsync();
                 var aiResult = JsonSerializer.Deserialize<Dictionary<string, object>>(resultJson);
 
-                survey.RiskPrediction = aiResult["result"].ToString();
+                survey.AudioRiskPrediction = aiResult["result"].ToString(); // ✅ AudioRiskPrediction
                 await _context.SaveChangesAsync();
             }
             catch
             {
-                survey.RiskPrediction = "AudioAnalysisError";
+                survey.AudioRiskPrediction = "AudioAnalysisError"; // ✅ AudioRiskPrediction
                 await _context.SaveChangesAsync();
             }
 
@@ -222,7 +220,7 @@ namespace RAWH.API.Controllers
             {
                 message = "Audio uploaded and analyzed",
                 audioPath = survey.AudioRecordPath,
-                riskPrediction = survey.RiskPrediction
+                audioRiskPrediction = survey.AudioRiskPrediction // ✅ AudioRiskPrediction
             });
         }
 
@@ -267,12 +265,9 @@ namespace RAWH.API.Controllers
 
                 RecurrentChestIssues = survey.RecurrentChestIssues,
                 HeartCondition = survey.HeartCondition
-
-              
             };
 
             return Ok(response);
-
         }
 
         [HttpPut("{id}")]
@@ -288,8 +283,6 @@ namespace RAWH.API.Controllers
 
             if (survey == null)
                 return NotFound();
-
-            
 
             survey.FeverDuration = dto.FeverDuration;
             survey.FeverLevel = dto.FeverLevel;
@@ -317,13 +310,9 @@ namespace RAWH.API.Controllers
             survey.RecurrentChestIssues = dto.RecurrentChestIssues;
             survey.HeartCondition = dto.HeartCondition;
 
-            
-
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Survey updated successfully" });
         }
-
-
     }
 }

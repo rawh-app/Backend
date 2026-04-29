@@ -147,7 +147,7 @@
       },
       {
         "Name": "dto",
-        "Type": "RAWH.BLL.DTOs.PneumoniaSurveyCreateDto",
+        "Type": "RAWH.BLL.DTOs.PneumoniaSurveyGet_PutDto",
         "IsRequired": true
       }
     ],
