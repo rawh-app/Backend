@@ -22,7 +22,6 @@ namespace RAWH.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             try
             {
                 var token = await auth.Register(model);
@@ -33,14 +32,11 @@ namespace RAWH.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             try
             {
                 var token = await auth.Login(model);

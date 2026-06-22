@@ -10,9 +10,9 @@ namespace RAWH.BLL.DTOs
 {
     public class PneumoniaSurveyCreateDto
     {
-        public string ChildName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public Gender Gender { get; set; }
+        public string? ChildName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public Gender? Gender { get; set; }
 
         public FeverDuration FeverDuration { get; set; }
         public FeverLevel FeverLevel { get; set; }

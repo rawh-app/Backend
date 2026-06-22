@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using RAWH.BLL.DTOs;
 using RAWH.DAL.Data;
+using System;
+using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
+using static RAWH.DAL.Enums.AppEnums;
 
 namespace RAWH.API.Controllers
 {
@@ -13,10 +17,12 @@ namespace RAWH.API.Controllers
     public class PneumoniaSurveyController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IServiceProvider _serviceProvider;
 
-        public PneumoniaSurveyController(ApplicationDbContext context)
+        public PneumoniaSurveyController(ApplicationDbContext context, IServiceProvider serviceProvider)
         {
             _context = context;
+            _serviceProvider = serviceProvider;
         }
 
         // ===== Create Survey =====
@@ -25,25 +31,43 @@ namespace RAWH.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
-
-            if (string.IsNullOrWhiteSpace(dto.ChildName) || dto.ChildName.Length > 100)
-                return BadRequest(new { message = "ChildName يجب أن يكون بين 1 و 100 حرف" });
-
-            if (dto.DateOfBirth > DateTime.Today)
-                return BadRequest(new { message = "تاريخ الميلاد لا يمكن أن يكون في المستقبل" });
-
+            var lastSurvey = await _context.PneumoniaSurveyRequest
+                .Where(x => x.UserId == userId)
+                .OrderByDescending(x => x.CreatedAt)
+                .FirstOrDefaultAsync();
+            string childName;
+            DateTime dateOfBirth;
+            Gender gender;
+            if (lastSurvey != null)
+            {    
+                childName = lastSurvey.ChildName;
+                dateOfBirth = lastSurvey.DateOfBirth;
+                gender = lastSurvey.Gender;
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(dto.ChildName) || dto.ChildName.Length > 100)
+                    return BadRequest(new { message = "ChildName يجب أن يكون بين 1 و 100 حرف" });
+                if (dto.DateOfBirth > DateTime.Today)
+                    return BadRequest(new { message = "تاريخ الميلاد لا يمكن أن يكون في المستقبل" });
+                childName = dto.ChildName;
+                dateOfBirth = dto.DateOfBirth.Value;
+                gender = dto.Gender.Value;
+            }
             try
             {
                 var survey = new PneumoniaSurveyRequest
                 {
                     UserId = userId,
-                    ChildName = dto.ChildName,
-                    DateOfBirth = dto.DateOfBirth,
-                    Gender = dto.Gender,
+                    CreatedAt = DateTime.UtcNow,
+
+                   
+                    ChildName = childName,
+                    DateOfBirth = dateOfBirth,
+                    Gender = gender,
 
                     FeverDuration = dto.FeverDuration,
                     FeverLevel = dto.FeverLevel,
@@ -77,6 +101,7 @@ namespace RAWH.API.Controllers
                 _context.PneumoniaSurveyRequest.Add(survey);
                 await _context.SaveChangesAsync();
 
+               
                 try
                 {
                     using var httpClient = new HttpClient();
@@ -113,7 +138,11 @@ namespace RAWH.API.Controllers
                     var aiRequest = JsonSerializer.Serialize(aiDto);
                     var content = new StringContent(aiRequest, Encoding.UTF8, "application/json");
 
-                    var aiResponse = await httpClient.PostAsync("https://survey-api-uu1l.vercel.app/predict", content);
+                    var aiResponse = await httpClient.PostAsync(
+                        "https://survey-api-uu1l.vercel.app/predict",
+                        content
+                    );
+
                     aiResponse.EnsureSuccessStatusCode();
 
                     var resultJson = await aiResponse.Content.ReadAsStringAsync();
@@ -132,6 +161,7 @@ namespace RAWH.API.Controllers
                 {
                     message = "Survey submitted successfully",
                     id = survey.Id,
+                    childName = survey.ChildName,
                     riskPrediction = survey.RiskPrediction
                 });
             }
@@ -145,174 +175,341 @@ namespace RAWH.API.Controllers
             }
         }
 
+
+
         [HttpPost("{id}/upload-audio")]
-        public async Task<IActionResult> UploadAudio(int id, [FromForm] UploadAudioDto dto)
+        public async Task<IActionResult> CreateAudio(int id, [FromForm] IFormFile audioFile)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
+            if (audioFile == null || audioFile.Length == 0)
+                return BadRequest(new { message = "برجاء إرسال ملف صوتي" });
+
             var survey = await _context.PneumoniaSurveyRequest
                 .FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
 
             if (survey == null)
-                return NotFound();
+                return NotFound(new { message = "Survey غير موجود" });
 
-            if (dto.AudioRecord == null || dto.AudioRecord.Length == 0)
-                return BadRequest("No file");
+            
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "audio", "survey");
+            Directory.CreateDirectory(uploadsFolder);
 
-            var allowedExtensions = new[] { ".mp3", ".wav", ".m4a" };
-            var ext = Path.GetExtension(dto.AudioRecord.FileName).ToLower();
-            if (!allowedExtensions.Contains(ext))
-                return BadRequest("Invalid file type");
+            var fileName = $"{Guid.NewGuid()}_{audioFile.FileName}";
+            var filePath = Path.Combine(uploadsFolder, fileName);
 
-            var uploadsFolder = Path.Combine(
-                Directory.GetCurrentDirectory(),
-                "wwwroot",
-                "uploads",
-                "audio",
-                "survey"
-            );
-
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
-            var fileName = $"{Guid.NewGuid()}{ext}";
-            var fullPath = Path.Combine(uploadsFolder, fileName);
-
-            using (var stream = new FileStream(fullPath, FileMode.Create))
+            using (var stream = new FileStream(filePath, FileMode.Create))
             {
-                await dto.AudioRecord.CopyToAsync(stream);
+                await audioFile.CopyToAsync(stream);
             }
 
             survey.AudioRecordPath = $"/uploads/audio/survey/{fileName}";
-            await _context.SaveChangesAsync();
 
-            // ✅ التصليح هنا: AudioRiskPrediction بدل RiskPrediction + URL صح
             try
             {
                 using var httpClient = new HttpClient();
+                httpClient.Timeout = TimeSpan.FromSeconds(120);
 
-                var aiDto = new
+                // Step 1: Upload audio file
+                using var formData = new MultipartFormDataContent();
+                using var fileStream = audioFile.OpenReadStream();
+                using var fileContent = new StreamContent(fileStream);
+                fileContent.Headers.ContentType = new MediaTypeHeaderValue(audioFile.ContentType);
+                formData.Add(fileContent, "files", audioFile.FileName);
+
+                var uploadResponse = await httpClient.PostAsync(
+                    "https://nourhan3madd-final30.hf.space/gradio_api/upload",
+                    formData
+                );
+                uploadResponse.EnsureSuccessStatusCode();
+
+                var uploadJson = await uploadResponse.Content.ReadAsStringAsync();
+                var uploadedPaths = JsonSerializer.Deserialize<List<string>>(uploadJson);
+                var uploadedFilePath = uploadedPaths![0];
+
+                // Step 2: Submit predict job
+                var predictPayload = new
                 {
-                    AudioPath = survey.AudioRecordPath
+                    data = new[]
+                    {
+                new
+                {
+                    path = uploadedFilePath,
+                    meta = new { _type = "gradio.FileData" }
+                }
+            }
                 };
 
-                var aiRequest = JsonSerializer.Serialize(aiDto);
-                var content = new StringContent(aiRequest, Encoding.UTF8, "application/json");
+                var predictContent = new StringContent(
+                    JsonSerializer.Serialize(predictPayload),
+                    Encoding.UTF8,
+                    "application/json"
+                );
 
-                var aiResponse = await httpClient.PostAsync("https://survey-api-uu1l.vercel.app/predict-audio", content);
-                aiResponse.EnsureSuccessStatusCode();
+                var predictResponse = await httpClient.PostAsync(
+                    "https://nourhan3madd-final30.hf.space/gradio_api/call/predict",
+                    predictContent
+                );
+                predictResponse.EnsureSuccessStatusCode();
 
-                var resultJson = await aiResponse.Content.ReadAsStringAsync();
-                var aiResult = JsonSerializer.Deserialize<Dictionary<string, object>>(resultJson);
+                var predictJson = await predictResponse.Content.ReadAsStringAsync();
+                var predictResult = JsonSerializer.Deserialize<Dictionary<string, object>>(predictJson);
+                var eventId = predictResult!["event_id"].ToString();
 
-                survey.AudioRiskPrediction = aiResult["result"].ToString(); // ✅ AudioRiskPrediction
+                // Step 3: Poll for result
+                string? predictionText = null;
+                var pollUrl = $"https://nourhan3madd-final30.hf.space/gradio_api/call/predict/{eventId}";
+
+                for (int i = 0; i < 60; i++)
+                {
+                    await Task.Delay(2000);
+
+                    var pollResponse = await httpClient.GetAsync(pollUrl);
+                    var pollBody = await pollResponse.Content.ReadAsStringAsync();
+
+                    var lines = pollBody.Split('\n');
+
+                    string? eventType = null;
+                    string? dataContent = null;
+
+                    foreach (var line in lines)
+                    {
+                        if (line.StartsWith("event:"))
+                            eventType = line.Replace("event:", "").Trim();
+
+                        if (line.StartsWith("data:"))
+                            dataContent = line.Replace("data:", "").Trim();
+                    }
+
+                    if (eventType == "complete" && dataContent != null)
+                    {
+                        var resultArray = JsonSerializer.Deserialize<List<JsonElement>>(dataContent);
+                        var rawOutput = resultArray?[0].GetString() ?? "";
+
+                        var match = System.Text.RegularExpressions.Regex.Match(
+                            rawOutput,
+                            @"Prediction:\s*(Normal|Pneumonia)",
+                            System.Text.RegularExpressions.RegexOptions.IgnoreCase
+                        );
+
+                        predictionText = match.Success ? match.Groups[1].Value : rawOutput;
+                        break;
+                    }
+
+                    if (eventType == "error")
+                    {
+                        predictionText = "Error";
+                        break;
+                    }
+                }
+
+                // Update الـ survey
+                survey.AudioRiskPrediction = predictionText ?? "Unknown";
                 await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = "Audio prediction completed successfully",
+                    audioRecordPath = survey.AudioRecordPath,
+                    audioRiskPrediction = survey.AudioRiskPrediction
+                });
             }
-            catch
+            catch (Exception ex)
             {
-                survey.AudioRiskPrediction = "AudioAnalysisError"; // ✅ AudioRiskPrediction
+                // لو في error في الـ AI برضو نحفظ الـ path
                 await _context.SaveChangesAsync();
+
+                return StatusCode(500, new
+                {
+                    message = "حدث خطأ أثناء معالجة الملف الصوتي",
+                    error = ex.InnerException?.Message ?? ex.Message
+                });
             }
+        }
+
+
+        [HttpGet("{id}/final-diagnosis")]
+        public async Task<IActionResult> GetFinalDiagnosis(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            var survey = await _context.PneumoniaSurveyRequest
+                .FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+
+            if (survey == null)
+                return NotFound(new { message = "Survey غير موجود" });
+
+            if (string.IsNullOrEmpty(survey.RiskPrediction) || survey.RiskPrediction == "Error")
+                return BadRequest(new { message = "نتيجة الاستبيان غير متاحة" });
+
+            if (string.IsNullOrEmpty(survey.AudioRiskPrediction) || survey.AudioRiskPrediction == "Error")
+                return BadRequest(new { message = "نتيجة التسجيل الصوتي غير متاحة" });
+
+            var finalResult = FinalDiagnosis(survey.RiskPrediction, survey.AudioRiskPrediction);
+
+            survey.FinalDiagnosis = finalResult;
+            await _context.SaveChangesAsync();
 
             return Ok(new
             {
-                message = "Audio uploaded and analyzed",
-                audioPath = survey.AudioRecordPath,
-                audioRiskPrediction = survey.AudioRiskPrediction // ✅ AudioRiskPrediction
+                id = survey.Id,
+                riskPrediction = survey.RiskPrediction,
+                audioRiskPrediction = survey.AudioRiskPrediction,
+                finalDiagnosis = survey.FinalDiagnosis
             });
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetSurvey(int id)
+
+
+
+
+
+
+        [HttpGet("history")]
+        public async Task<IActionResult> GetHistory()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var survey = await _context.PneumoniaSurveyRequest
-                .FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+            var surveys = await _context.PneumoniaSurveyRequest
+                .Where(x => x.UserId == userId)
+                .OrderByDescending(x => x.CreatedAt)
+                .ToListAsync();
 
-            if (survey == null)
-                return NotFound();
-
-            var response = new PneumoniaSurveyGet_PutDto
+            var result = surveys.Select(x => new
             {
-                FeverDuration = survey.FeverDuration,
-                FeverLevel = survey.FeverLevel,
-                FeverResponse = survey.FeverResponse,
+                FinalDiagnosis = TranslateDiagnosis(x.FinalDiagnosis),
+                Time = FormatTime(x.CreatedAt),
+                Day = GetDayLabel(x.CreatedAt)
+            });
 
-                CoughTime = survey.CoughTime,
-                CoughType = survey.CoughType,
-                PhlegmStatus = survey.PhlegmStatus,
-                CoughSeverity = survey.CoughSeverity,
-
-                HasAbnormalBreathingSound = survey.HasAbnormalBreathingSound,
-                BreathingEffort = survey.BreathingEffort,
-                FeedingAbility = survey.FeedingAbility,
-                HasChestIndrawing = survey.HasChestIndrawing,
-
-                HasNasalFlaring = survey.HasNasalFlaring,
-                HasCyanosis = survey.HasCyanosis,
-
-                FatigueStatus = survey.FatigueStatus,
-                AppetiteStatus = survey.AppetiteStatus,
-
-                HasWeakCry = survey.HasWeakCry,
-                HasSevereRunnyNoseWithBreathingDifficulty = survey.HasSevereRunnyNoseWithBreathingDifficulty,
-
-                RecurrentChestIssues = survey.RecurrentChestIssues,
-                HeartCondition = survey.HeartCondition
-            };
-
-            return Ok(response);
+            return Ok(result);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] PneumoniaSurveyGet_PutDto dto)
+
+        [HttpGet("chart/sequence")]
+        public async Task<IActionResult> GetSequenceChart()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized();
 
-            var survey = await _context.PneumoniaSurveyRequest
-                .FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+            var surveys = await _context.PneumoniaSurveyRequest
+                .Where(x => x.UserId == userId && x.FinalDiagnosis != null)
+                .OrderBy(x => x.CreatedAt)
+                .ToListAsync();
 
-            if (survey == null)
-                return NotFound();
+            if (!surveys.Any())
+                return Ok(new { message = "No data" });
 
-            survey.FeverDuration = dto.FeverDuration;
-            survey.FeverLevel = dto.FeverLevel;
-            survey.FeverResponse = dto.FeverResponse;
+            int index = 1;
 
-            survey.CoughTime = dto.CoughTime;
-            survey.CoughType = dto.CoughType;
-            survey.PhlegmStatus = dto.PhlegmStatus;
-            survey.CoughSeverity = dto.CoughSeverity;
+            var chartData = surveys.Select(x => new
+            {
+                x = index++,
+                y = MapDiagnosisToValue(x.FinalDiagnosis),
+                label = TranslateDiagnosis(x.FinalDiagnosis)
+            });
+            var childName = surveys.First().ChildName;
+            return Ok(new
+            {
+                childName = childName,
+                data = chartData
+            });
+        }
 
-            survey.HasAbnormalBreathingSound = dto.HasAbnormalBreathingSound;
-            survey.BreathingEffort = dto.BreathingEffort;
-            survey.FeedingAbility = dto.FeedingAbility;
-            survey.HasChestIndrawing = dto.HasChestIndrawing;
 
-            survey.HasNasalFlaring = dto.HasNasalFlaring;
-            survey.HasCyanosis = dto.HasCyanosis;
 
-            survey.FatigueStatus = dto.FatigueStatus;
-            survey.AppetiteStatus = dto.AppetiteStatus;
 
-            survey.HasWeakCry = dto.HasWeakCry;
-            survey.HasSevereRunnyNoseWithBreathingDifficulty = dto.HasSevereRunnyNoseWithBreathingDifficulty;
 
-            survey.RecurrentChestIssues = dto.RecurrentChestIssues;
-            survey.HeartCondition = dto.HeartCondition;
+        //Helpers
 
-            await _context.SaveChangesAsync();
+        private string FormatTime(DateTime date)
+        {
+            return date.ToLocalTime().ToString("hh:mm tt");
+        }
 
-            return Ok(new { message = "Survey updated successfully" });
+        private string GetDayLabel(DateTime date)
+        {
+            var localDate = date.ToLocalTime().Date;
+            var today = DateTime.Now.Date;
+
+            if (localDate == today)
+                return "اليوم";
+
+            if (localDate == today.AddDays(-1))
+                return "أمس";
+
+            return localDate.ToString("d/M");
+        }
+
+
+        private string FinalDiagnosis(string surveyResult, string audioResult)
+        {
+            if (audioResult == "Normal")
+            {
+                if (surveyResult == "Low Risk")
+                    return "Low Risk";
+
+                else if (surveyResult == "Moderate Risk")
+                    return "Low Risk";
+
+                else if (surveyResult == "High Risk")
+                    return "Moderate Risk";
+
+                else if (surveyResult == "Severe Pneumonia")
+                    return "Severe Pneumonia";
+            }
+            else if (audioResult == "Pneumonia")
+            {
+                if (surveyResult == "Low Risk")
+                    return "Moderate Risk";
+
+                else if (surveyResult == "Moderate Risk")
+                    return "High Risk";
+
+                else if (surveyResult == "High Risk")
+                    return "Severe Pneumonia";
+
+                else if (surveyResult == "Severe Pneumonia")
+                    return "Severe Pneumonia";
+            }
+
+            return "Unknown";
+        }
+
+
+        private string TranslateDiagnosis(string? diagnosis)
+        {
+            return diagnosis switch
+            {
+                "Low Risk" => "جيدة",
+                "Moderate Risk" => "متوسطة",
+                "High Risk" => "سيئة",
+                "Severe Pneumonia" => "سيئة جدا",
+                _ => "غير محدد"
+            };
+        }
+
+
+
+        private int MapDiagnosisToValue(string diagnosis)
+        {
+            return diagnosis switch
+            {
+                "Low Risk" => 1,
+                "Moderate Risk" => 2,
+                "High Risk" => 3,
+                "Severe Pneumonia" => 4,
+                _ => 0
+            };
         }
     }
 }

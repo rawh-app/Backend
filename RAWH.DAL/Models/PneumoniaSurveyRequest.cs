@@ -5,6 +5,8 @@ public class PneumoniaSurveyRequest
 {
     // Child Info
     public int Id { get; set; }
+    public DateTime CreatedAt { get; set; }
+
     [ForeignKey("ApplicationUser")]
     public string UserId { get; set; }
     public ApplicationUser ApplicationUser { get; set; }
@@ -77,7 +79,7 @@ public class PneumoniaSurveyRequest
 
     //Survey Result From AI Model
     public string? RiskPrediction { get; set; } // Low Risk, Moderate Risk, High Risk, Severe Pneumonia
-    public string? AudioRiskPrediction { get; set; } 
+    public string? AudioRiskPrediction { get; set; } // Normal , Pneumonia
 
-
+    public string? FinalDiagnosis { get; set; }
 }
