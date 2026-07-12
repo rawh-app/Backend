@@ -29,7 +29,16 @@ namespace RAWH.API
             
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.DocInclusionPredicate((docName, apiDesc) =>
+                {
+                    if (apiDesc.ActionDescriptor.DisplayName != null &&
+                        apiDesc.ActionDescriptor.DisplayName.Contains("CreateAudio"))
+                        return false;
+                    return true;
+                });
+            });
             builder.Services.Configure<emailSetting>(builder.Configuration.GetSection("emailSetting"));
             // Tamer Elgayar
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -39,8 +48,17 @@ namespace RAWH.API
             builder.Services.ADDBLL_Registeration();
 
 
-       
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
             //Identity Services
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
@@ -84,7 +102,7 @@ namespace RAWH.API
             }
                 app.UseSwagger();
                 app.UseSwaggerUI();
-
+            app.UseCors("AllowAll");
             app.UseStaticFiles();
 
             app.UseHttpsRedirection();

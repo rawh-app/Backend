@@ -178,6 +178,7 @@ namespace RAWH.API.Controllers
 
 
         [HttpPost("{id}/upload-audio")]
+        [Consumes("multipart/form-data")]
         public async Task<IActionResult> CreateAudio(int id, [FromForm] IFormFile audioFile)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);

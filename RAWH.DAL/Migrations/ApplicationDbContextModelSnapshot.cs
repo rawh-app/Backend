@@ -260,7 +260,7 @@ namespace RAWH.DAL.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("PneumoniaSurveyRequest");
+                    b.ToTable("PneumoniaSurveyRequest", (string)null);
                 });
 
             modelBuilder.Entity("RAWH.DAL.Data.ApplicationUser", b =>
@@ -375,7 +375,7 @@ namespace RAWH.DAL.Migrations
                         .IsUnique()
                         .HasFilter("[UserId] IS NOT NULL");
 
-                    b.ToTable("Appointments");
+                    b.ToTable("Appointments", (string)null);
                 });
 
             modelBuilder.Entity("RAWH.DAL.Models.Clinic", b =>
@@ -396,7 +396,7 @@ namespace RAWH.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clinics");
+                    b.ToTable("Clinics", (string)null);
                 });
 
             modelBuilder.Entity("RAWH.DAL.Models.Hospital", b =>
@@ -417,7 +417,7 @@ namespace RAWH.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals");
+                    b.ToTable("Hospitals", (string)null);
                 });
 
             modelBuilder.Entity("RAWH.DAL.Models.MedicalReport", b =>
@@ -449,7 +449,7 @@ namespace RAWH.DAL.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("MedicalReports");
+                    b.ToTable("MedicalReports", (string)null);
                 });
 
             modelBuilder.Entity("RAWH.DAL.Models.Notification", b =>
@@ -479,7 +479,7 @@ namespace RAWH.DAL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Notifications");
+                    b.ToTable("Notifications", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

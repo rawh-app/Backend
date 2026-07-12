@@ -9,25 +9,47 @@
         }
         public enum FeverDuration
         {
-            LessThan24Hours,     // منذ أقل من 24 ساعة
-            From1To3Days,        // من 1-3 أيام
-            MoreThan3Days,       // منذ أكثر من 3 أيام
-            NormalTemperature    // حرارة الطفل طبيعية
+            LessThan24Hours,     
+            From1To3Days,        
+            MoreThan3Days,       
+            NormalTemperature    
         }
         public enum FeverResponse
         {
-            ReducedEasily,       // نعم، تنخفض بسهولة
-            ReducedWithDifficulty, // تنخفض بصعوبة
-            NotReduced,          // لا تنخفض
-            DidNotTakeMedicine   // لم يأخذ الطفل خافض للحرارة
+            Unknown,
+            ReducedEasily,       
+            ReducedWithDifficulty,
+            NotReduced,          
+            DidNotTakeMedicine   
         }
 
         public enum FeverLevel
         {
-            LessThan38,          // أقل من 38
-            From38To39,          // من 38 إلى 39
-            MoreThan39,          // أعلى من 39
-            NotMeasured          // لم يتم قياس درجة الحرارة
+            Unknown,             
+            LessThan38,          
+            From38To39,          
+            MoreThan39,          
+            NotMeasured          
+        }
+        public enum CoughType
+        {
+            Unknown,
+            DryCough,            
+            ProductiveCough      
+        }
+        public enum CoughSeverity
+        {
+            Unknown,
+            Mild,
+            Moderate,
+            Severe
+        }
+        public enum PhlegmStatus
+        {
+            Unknown,
+            EasyToExit,        
+            DifficultToExit,    
+            NoPhlegm             
         }
         public enum CoughTime
         {
@@ -49,29 +71,14 @@
             FewDays,
             AllDay
         }
-        public enum CoughType
-        {
-            DryCough,            // سعال جاف
-            ProductiveCough      // سعال مصحوب ببلغم
-        }
-        public enum CoughSeverity
-        {
-            Mild,
-            Moderate,
-            Severe
-        }
+       
         public enum BreathingEffort
         {
             Normal,              // لا، تنفسه طبيعي
             FastBreathing,       // نعم، تنفسه سريع
             LooksExhausted       // نعم، يبدو عليه التعب أثناء التنفس
         }
-        public enum PhlegmStatus
-        {
-            EasyToExit,          // نعم، البلغم خفيف ويخرج بسهولة
-            DifficultToExit,     // لا، البلغم كثيف ويصعب خروجه
-            NoPhlegm             // لا يوجد بلغم
-        }
+       
         public enum FeedingAbility
         {
             CanComplete,         // نعم
